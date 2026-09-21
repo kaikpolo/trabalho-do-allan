@@ -1,0 +1,287 @@
+:root {
+--neutral-0: hsl(0, 0%, 100%);
+--neutral-300: hsl(252, 6%, 83%);
+--neutral-500: hsl(245, 15%, 58%);
+--neutral-700: hsl(245, 19%, 35%);
+--neutral-900: hsl(248, 70%, 10%);
+
+--orange-500: hsl(7, 88%, 67%);
+--orange-700: hsl(7, 71%, 60%);
+
+--font-family: 'Inconsolata', monospace;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: var(--font-family);
+background-color: var(--neutral-900);
+background-image:
+url('./images/pattern-lines.svg'),
+url('./images/background-desktop.png');
+background-repeat: no-repeat, no-repeat;
+background-position: center center, center center;
+background-size: cover, cover;
+color: var(--neutral-0);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2rem 1rem;
+}
+
+.container {
+width: 100%;
+max-width: 600px;
+text-align: center;
+}
+
+.header {
+margin-bottom: 2rem;
+}
+
+.logo {
+height: 30px;
+}
+
+.title {
+font-size: 2rem;
+font-weight: 800;
+line-height: 1.2;
+margin-bottom: 0.75rem;
+}
+
+.subtitle {
+color: var(--neutral-300);
+font-size: 1rem;
+margin-bottom: 2rem;
+}
+
+.gradient-text {
+background: linear-gradient(90deg, var(--orange-500) 0%, var(--neutral-0) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+/* Formulário */
+form {
+display: flex;
+flex-direction: column;
+gap: 1.25rem;
+text-align: left;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.label {
+font-size: 0.95rem;
+color: var(--neutral-0);
+font-weight: 500;
+}
+
+.upload-area {
+position: relative;
+border: 2px dashed var(--neutral-500);
+background: rgba(255, 255, 255, 0.05);
+border-radius: 12px;
+padding: 1.25rem;
+text-align: center;
+cursor: pointer;
+}
+
+.file-input {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+cursor: pointer;
+}
+
+.icon-box {
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid var(--neutral-700);
+border-radius: 12px;
+width: 45px;
+height: 45px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 0.5rem;
+}
+
+.upload-text {
+color: var(--neutral-300);
+font-size: 0.875rem;
+}
+
+.hint {
+font-size: 0.75rem;
+color: var(--neutral-300);
+display: flex;
+align-items: center;
+gap: 0.4rem;
+}
+
+.input {
+width: 100%;
+padding: 0.75rem 1rem;
+border-radius: 10px;
+border: 1px solid var(--neutral-500);
+background: rgba(255, 255, 255, 0.05);
+color: var(--neutral-0);
+font-family: inherit;
+font-size: 0.95rem;
+}
+
+.input:focus {
+outline: none;
+border-color: var(--orange-500);
+}
+
+.btn-submit {
+width: 100%;
+padding: 0.9rem;
+background-color: var(--orange-500);
+color: var(--neutral-900);
+font-family: inherit;
+font-weight: 800;
+font-size: 1rem;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+background-color: var(--orange-700);
+}
+
+/* Divisor e Ingresso */
+.ticket-preview-section {
+margin-top: 3.5rem;
+padding-top: 2rem;
+border-top: 1px solid var(--neutral-700);
+}
+
+.section-divider-title {
+font-size: 1.1rem;
+color: var(--neutral-300);
+margin-bottom: 1.5rem;
+font-weight: 500;
+}
+
+.ticket-card {
+width: 100%;
+max-width: 500px;
+height: 250px;
+margin: 0 auto;
+background-image: url('pattern-ticket.svg');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+position: relative;
+padding: 1.5rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+text-align: left;
+}
+
+.ticket-header {
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+}
+
+.ticket-logo {
+height: 26px;
+width: fit-content;
+}
+
+.ticket-date {
+font-size: 0.8rem;
+color: var(--neutral-300);
+margin-left: 2rem;
+}
+
+.ticket-footer {
+display: flex;
+align-items: center;
+}
+
+.ticket-user-info {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+}
+
+.ticket-avatar {
+width: 50px;
+height: 50px;
+border-radius: 10px;
+object-fit: cover;
+}
+
+.user-name {
+font-size: 1.15rem;
+font-weight: 700;
+color: var(--neutral-0);
+}
+
+.user-github {
+display: flex;
+align-items: center;
+gap: 0.3rem;
+font-size: 0.8rem;
+color: var(--neutral-300);
+}
+
+.ticket-number {
+position: absolute;
+right: 1rem;
+top: 50%;
+transform: translateY(-50%) rotate(90deg);
+font-size: 1.4rem;
+color: var(--neutral-500);
+font-weight: 500;
+letter-spacing: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 550px) {
+.title {
+font-size: 1.5rem;
+}
+.ticket-card {
+height: 190px;
+padding: 1rem;
+}
+.ticket-logo {
+height: 20px;
+}
+.ticket-date {
+font-size: 0.7rem;
+margin-left: 1.5rem;
+}
+.ticket-avatar {
+width: 38px;
+height: 38px;
+}
+.user-name {
+font-size: 0.95rem;
+}
+.ticket-number {
+font-size: 1rem;
+right: 0.3rem;
+}
+}

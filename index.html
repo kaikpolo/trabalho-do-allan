@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href=".favicon-32x32.png" />
+    <title>Gerador de Ingresso para Conferência</title>
+
+    <!-- Fonte Inconsolata -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- Logótipo -->
+      <header class="header">
+        <img src="logo-full.svg" alt="Coding Conf Logo" class="logo" />
+      </header>
+
+      <!-- Secção do Formulário -->
+      <section class="form-section">
+        <h1 class="title">
+          Sua Jornada rumo à
+          <span class="gradient-text">Coding Conf 2026</span> começa aqui!
+        </h1>
+        <p class="subtitle">
+          Garanta sua vaga no maior evento de programação do ano.
+        </p>
+
+        <form action="#" method="POST">
+          <!-- Upload de Avatar -->
+          <div class="form-group">
+            <label class="label" for="avatar">Carregar avatar</label>
+            <div class="upload-area">
+              <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/png, image/jpeg"
+                class="file-input"
+              />
+              <div class="upload-content">
+                <div class="icon-box">
+                  <img src="icon-upload.svg" alt="Ícone Upload" />
+                </div>
+                <p class="upload-text">
+                  Arraste e solte ou clique para fazer o upload
+                </p>
+              </div>
+            </div>
+            <p class="hint">
+              <img src="icon-info.svg" alt="Info" />
+              Faça o upload de sua foto (JPG ou PNG, tamanho máximo: 500 KB).
+            </p>
+          </div>
+
+          <!-- Nome Completo -->
+          <div class="form-group">
+            <label for="full-name" class="label">Nome completo</label>
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              class="input"
+              placeholder="Jonatan Kristof"
+              required
+            />
+          </div>
+
+          <!-- E-mail -->
+          <div class="form-group">
+            <label for="email" class="label">Endereço de e-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="input"
+              placeholder="exemplo@email.com"
+              required
+            />
+          </div>
+
+          <!-- Usuário do GitHub -->
+          <div class="form-group">
+            <label for="github-username" class="label"
+              >Nome de usuário do GitHub</label
+            >
+            <input
+              type="text"
+              id="github-username"
+              name="github-username"
+              class="input"
+              placeholder="@seuusuario"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-submit">Gerar meu bilhete</button>
+        </form>
+      </section>
+
+      <!-- Visualização do Ingresso -->
+      <section class="ticket-preview-section">
+        <h2 class="section-divider-title">Pré-visualização do Ingresso</h2>
+
+        <div class="ticket-card">
+          <div class="ticket-header">
+            <img
+              src="logo-full.svg"
+              alt="Coding Conf Logo"
+              class="ticket-logo"
+            />
+            <p class="ticket-date">31 de Janeiro de 2026 / Austin, TX</p>
+          </div>
+          <div class="ticket-footer">
+            <div class="ticket-user-info">
+              <img
+                src="image-avatar.jpg"
+                alt="Avatar do Usuário"
+                class="ticket-avatar"
+              />
+              <div class="ticket-user-text">
+                <h3 class="user-name">Jonatan Kristof</h3>
+                <p class="user-github">
+                  <img src="icon-github.svg" alt="GitHub Logo" />
+                  @jonatankristof
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="ticket-number">#01609</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script simples em JavaScript -->
+    <script>
+      // 1. Atualizar a foto assim que selecionar o ficheiro
+      document
+        .getElementById("avatar")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            document.querySelector(".ticket-avatar").src =
+              URL.createObjectURL(file);
+          }
+        });
+
+      // 2. Atualizar o Nome e Usuário do GitHub ao clicar no botão
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("full-name").value;
+        const github = document.getElementById("github-username").value;
+
+        if (name) {
+          document.querySelector(".user-name").textContent = name;
+        }
+        if (github) {
+          const formattedGithub = github.startsWith("@")
+            ? github
+            : "@" + github;
+          document.querySelector(".user-github").innerHTML = `
+<img src="icon-github.svg" alt="GitHub Logo">
+${formattedGithub}
+`;
+        }
+      });
+    </script>
+  </body>
+</html>
